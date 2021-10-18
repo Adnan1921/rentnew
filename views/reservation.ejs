@@ -1,0 +1,103 @@
+
+
+    <%- include('navbar') %>
+
+   
+
+  
+
+     <div class="container mx-6 mb-6 pb-6">
+
+
+     <section class="section">
+  <h1 class="muli-36 has-text-primary">ECONOMY CLASS RENTAL CAR OPTIONS</h1>
+  <h2 class="muli-21 mt-4">
+    When you rent an economy car with STAR you will be able to get one of these vehicles below.<br>
+    These are only a small selection and you can see many more fantastic makes and models on our <a href="#" class="has-text-primary">Vehicles Page</a>.  </h2>
+  <h2 class="muli-21 mt-4">
+    STAR car rental services boasts a wide range of economy vehicles such as Skoda Fabia, Renault Megan and the Ford Focus.<br>
+    Expect a hassle free rental experience with STAR where you are guaranteed a top quality economy rental car for a fantastic price.
+  </h2>
+</section>
+<!-- Kraj Tekst ispod navbara-->
+
+
+
+     <div class="columns is-multiline pt-6 mt-6 mx-5">
+       <% car.forEach(car => { %>
+
+       <div class="column is-3 ">
+           <div class="box box-radius has-background-black pt-6 mt-6 blackboxCar">
+               <div class="column is-full no-margin carmodel">
+                    <img src="/uploads/images/<%= car.image %>" class="rounded-circle" >
+               </div>
+
+               <div class="columns is-desktop">
+                   <div class="column">
+                       <div class="columns is-gapless is-multiline is-mobile pt-6">
+                           <div class="column is-10">
+                               <p class="muli-32 has-text-white"><%= car.model %></p>
+                           </div>
+                           <div class="column is-2">
+                               <figure class="image is-32x32 level-right pb-3 has-text-left">
+                                   <img src="./images/Skoda-Logo.png" />
+                               </figure>
+                           </div>
+                           <div class="column is-12">
+                               <p class="muli-19 has-text-primary pt-1 has-text-left">Starting from 50 KM / Day</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <hr class="devider-grey">
+
+               <div class="columns is-multiline is-mobile">
+                 <div class="column is-8">
+                     <p class="has-text-left has-text-white muli-16">Seat Availability</p>
+                 </div>
+                 <div class="column is-4">
+                     <p class="has-text-right has-text-white muli-16"><%= car.seat %></p>
+                 </div>
+                 <div class="column is-6">
+                     <p class="has-text-left has-text-white muli-16">Year</p>
+                 </div>
+                 <div class="column is-6">
+                     <p class="has-text-right has-text-white muli-16"><%= car.year %></p>
+                 </div>
+                 <div class="column is-6">
+                     <p class="has-text-left has-text-white muli-16">Fuel</p>
+                 </div>
+                 <div class="column is-6">
+                     <p class="has-text-right has-text-white muli-16"><%= car.fueltype %></p>
+                 </div>
+                 <div class="column is-7">
+                     <p class="has-text-left has-text-white muli-16">Fuel Consumption</p>
+                 </div>
+                 <div class="column is-5">
+                     <p class="has-text-right has-text-white muli-16"><%= car.fuelconsumption %></p>
+                 </div>
+                 <div class="column is-6">
+                     <p class="has-text-left has-text-white muli-16">Transmission</p>
+                 </div>
+                 <div class="column is-6">
+                     <p class="has-text-right has-text-white muli-16"><%= car.transmission %></p>
+                 </div>
+               </div>
+               <div class="buttons is-full is-centered mt-4">
+                <a href="/car/<%= car._id %>">
+
+                   <button class="button is-warning is-active px-6"><p class="muli-22n">Rent</p></button>
+                </a>
+               </div>
+           </div>
+       </div>
+       <% }) %>
+
+       
+</div>
+</div>
+<!--Kraj drugog reda auta-->
+
+
+
+<%- include('footer2') %>

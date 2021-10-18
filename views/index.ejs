@@ -1,0 +1,116 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="style.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+</head>
+<body class="bg">
+
+
+  <div class="columns pt-6 mx-4">
+    <div class="column"></div>
+  <div class="column is-four-fifths">
+      <div class="box">
+
+        <div class="columns px-6 py-5">
+  <div class="column is-one-quarter"><p class="title">
+    CAR LIST
+  </p>
+  <p class="subtitle">
+    List of your cars
+  </p></div>
+  <div class="column is-one-fifth"><a href="/add" class="button is-link is-outlined mt-4">ADD NEW</a></div>
+  <div class="column is-one-fifth"><a href="/adminReservetion" class="button is-link is-outlined mt-4">ADMIN RESERVATIONS</a></div>
+</div>
+
+
+
+<% car.forEach(car => { %>
+          <div class="column">
+            <div class="card">
+          <div class="card-image">
+          <figure class="image is-2by1">
+          <img src="/uploads/images/<%= car.image %>" alt="Placeholder image">
+          </figure>
+          </div>
+          <div class="card-content">
+          <div class="media">
+          <div class="media-content">
+            <section class="hero is-small is-link">
+              <div class="hero-body">
+                <p class="subtitle">
+                  Car model
+                </p>
+                <p class="title">
+                    <%= car.model %>
+                </p>
+              </div>
+            </section>
+          </div>
+          </div>
+
+
+          <div class="content ml-5">
+          <div class="columns is-mobile ">
+          <div class="column"><h6 class=" has-text-weight-medium">Car Year:</h6></div>
+          <div class="column"><p class="has-text-weight-small "><%= car.year %></p></div>
+          </div>
+          <div class="columns is-mobile ">
+          <div class="column"><h6 class="has-text-weight-medium">Car Color:</h6></div>
+          <div class="column"><p class="has-text-weight-small "><%= car.color %></p></div>
+          </div>
+          <div class="columns is-mobile">
+          <div class="column"><h6 class="has-text-weight-medium">Prefered Price:</h6></div>
+          <div class="column"><p class="has-text-weight-small "><%= car.preferedPrice %></p></div>
+          </div>
+          <div class="columns is-mobile ">
+          <div class="column"><h6 class="has-text-weight-medium">Price:</h6></div>
+          <div class="column"><p class="has-text-weight-small"><%= car.price %></p></div>
+          </div>
+          </div>
+          <div class="buttons is-full is-centered mt-6">
+            <a href="/edit/<%= car._id %>" class="button is-link is-outlined">Edit</a>
+           <a href="javascript:CarDelete('<%= car._id %>')" class="button is-link is-outlined">Delete</a>
+           
+          </div>
+          </div>
+          </div>
+          </div>
+          <% }) %>
+          
+
+
+       
+
+
+<div class="buttons is-full is-centered mt-6">
+  <a href="/add" class="button is-link is-outlined">ADD NEW</a>
+</div>
+</div>
+</div>
+  <div class="column"></div>
+</div>
+
+
+
+<script>
+    function CarDelete(id){
+$.ajax({
+    url: '/delete/'+id,
+    type: 'DELETE',
+    success: function(result) {
+      console.log("Car deleted")
+    }
+});
+
+}
+</script>
+</body>
+</html>
+
